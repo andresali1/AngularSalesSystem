@@ -2,11 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SalesSystem.DAL.DBContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SalesSystem.DAL.Repositories;
+using SalesSystem.DAL.Repositories.Interfaces;
 
 namespace SalesSystem.IOC
 {
@@ -18,6 +15,9 @@ namespace SalesSystem.IOC
             {
                 options.UseSqlServer(configuration.GetConnectionString("connSQL"));
             });
+
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<ISaleRepository, SaleRepository>();
         }
     }
 }
