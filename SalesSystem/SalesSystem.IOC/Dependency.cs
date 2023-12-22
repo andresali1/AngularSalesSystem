@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SalesSystem.DAL.DBContext;
 using SalesSystem.DAL.Repositories;
 using SalesSystem.DAL.Repositories.Interfaces;
+using SalesSystem.Utility;
 
 namespace SalesSystem.IOC
 {
@@ -18,6 +19,8 @@ namespace SalesSystem.IOC
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ISaleRepository, SaleRepository>();
+
+            services.AddAutoMapper(typeof(AutoMapperProfile));
         }
     }
 }
