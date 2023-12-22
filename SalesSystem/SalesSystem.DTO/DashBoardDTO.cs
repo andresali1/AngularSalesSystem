@@ -6,6 +6,8 @@
 
         public string? IncomeTotal { get; set; }
 
+        public int ProductTotal { get; set; }
+
         public List<WeekSaleDTO> LastWeekSales { get; set; }
     }
 }

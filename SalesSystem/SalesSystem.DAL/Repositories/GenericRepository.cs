@@ -14,6 +14,11 @@ namespace SalesSystem.DAL.Repositories
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Method to get on the records of a model of given filter
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public async Task<TModel> Get(Expression<Func<TModel, bool>> filter)
         {
             try
@@ -27,6 +32,11 @@ namespace SalesSystem.DAL.Repositories
             }
         }
 
+        /// <summary>
+        /// Method to create a record of a model in DB
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<TModel> Create(TModel model)
         {
             try
@@ -41,6 +51,11 @@ namespace SalesSystem.DAL.Repositories
             }
         }
 
+        /// <summary>
+        /// Method to edit a record of a model in BD
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<bool> Edit(TModel model)
         {
             try
@@ -55,6 +70,11 @@ namespace SalesSystem.DAL.Repositories
             }
         }
 
+        /// <summary>
+        /// Method to delete a record of a model in DB
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<bool> Delete(TModel model)
         {
             try
@@ -69,6 +89,11 @@ namespace SalesSystem.DAL.Repositories
             }
         }
 
+        /// <summary>
+        /// Method to get an IQueryable of a model given one filters
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public async Task<IQueryable<TModel>> Consult(Expression<Func<TModel, bool>> filter = null)
         {
             try

@@ -13,6 +13,11 @@ namespace SalesSystem.DAL.Repositories.Interfaces
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Method to Create a new SaleDetail and its operations in BD
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<Sale> Register(Sale model)
         {
             Sale generatedSale = new Sale();
