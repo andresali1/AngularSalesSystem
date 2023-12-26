@@ -10,6 +10,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.DependencyInyections(builder.Configuration);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("New Policy", app =>
+    {
+        app.AllowAnyOrigin();
+        app.AllowAnyHeader();
+        app.AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,8 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("New Policy");
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
