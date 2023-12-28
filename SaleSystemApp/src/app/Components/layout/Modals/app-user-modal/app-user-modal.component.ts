@@ -33,7 +33,7 @@ export class AppUserModalComponent implements OnInit {
       email: ['', Validators.required],
       roleId: ['', Validators.required],
       pass: ['', Validators.required],
-      isActive: ['1', Validators.required]
+      isActive: [1, Validators.required]
     });
 
     if (this.userData != null) {
@@ -58,7 +58,7 @@ export class AppUserModalComponent implements OnInit {
         email: this.userData.email,
         roleId: this.userData.roleId,
         pass: this.userData.pass,
-        isActive: this.userData.isActive
+        isActive: this.userData.isActive.toString()
       });
     }
   }

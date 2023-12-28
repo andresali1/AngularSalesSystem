@@ -26,6 +26,9 @@ export class AppUserComponent implements AfterViewInit, OnInit {
     private _commonService: CommonService
   ) { }
 
+  /**
+   * Method to get all Users
+   */
   getUsers() {
     this._appUserService.list().subscribe({
       next: (data) => {
