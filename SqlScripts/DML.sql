@@ -2,8 +2,8 @@ USE DBSALES
 
 --User Role data
 INSERT INTO User_Role(RoleName) VALUES
-('Administrator'),
-('Employee'),
+('Administrador'),
+('Empleado'),
 ('Supervisor');
 
 SELECT * FROM User_Role
@@ -11,19 +11,19 @@ SELECT * FROM User_Role
 
 --App User data
 INSERT INTO App_User(CompleteName, Email, RoleId, Pass) VALUES
-('Administrator', 'admin@mail.com', 1, '1234');
+('Administrador', 'admin@mail.com', 1, '1234');
 
 SELECT * FROM App_User
 
 
 --Category data
 INSERT INTO Category(CategoryName) VALUES
-('Laptops'),
-('Screens'),
-('Keyboards'),
-('Headphones'),
-('Storage'),
-('Accesories');
+('Portátiles'),
+('Pantallas'),
+('Teclados'),
+('Auriculares'),
+('Almacenamiento'),
+('Accesorios');
 
 SELECT * FROM Category
 
@@ -55,11 +55,11 @@ SELECT * FROM Product
 --Menu data
 INSERT INTO Menu(MenuName, Icon, MenuUrl) VALUES
 ('Dashboard', 'dashboard', '/pages/dashboard'),
-('Users', 'group', '/pages/users'),
-('Products', 'collections_bookmark', '/pages/products'),
-('Sale', 'currency_exchange', '/pages/sale'),
-('Sales History', 'edit_note', '/pages/sale_history'),
-('Reports', 'receipt', '/pages/reports');
+('Usuario', 'group', '/pages/usuario'),
+('Producto', 'collections_bookmark', '/pages/producto'),
+('Venta', 'currency_exchange', '/pages/venta'),
+('Historial Venta', 'edit_note', '/pages/historial_venta'),
+('Reporte', 'receipt', '/pages/reporte');
 
 SELECT * FROM Menu
 
