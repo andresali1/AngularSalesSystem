@@ -28,6 +28,9 @@ export class LoginComponent {
     });
   }
 
+  /**
+   * Method to login an User
+   */
   login() {
     this.showLoading = true;
 
@@ -47,7 +50,7 @@ export class LoginComponent {
       complete: () => {
         this.showLoading = false;
       },
-      error: () =>{
+      error: () => {
         this._commonService.showAlert('Ocurrió un error', 'Opps!');
       }
     });
