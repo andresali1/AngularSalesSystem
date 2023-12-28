@@ -1,0 +1,7 @@
+.nav-item {
+    display: flex;
+}
+
+.nav-item div{
+    margin-left: 10%;
+}
