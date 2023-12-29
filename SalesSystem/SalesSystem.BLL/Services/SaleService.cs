@@ -59,28 +59,8 @@ namespace SalesSystem.BLL.Services
             {
                 if (searchBy == "date")
                 {
-                    DateTime begin_date;
-                    DateTime end_date;
-
-                    if (beginDate.Contains("GMT"))
-                    {
-                        begin_date = DateTime.ParseExact(beginDate, "ddd MMM dd yyyy HH:mm:ss 'GMT-0500'", CultureInfo.InvariantCulture);
-
-                    }
-                    else
-                    {
-                        begin_date = DateTime.ParseExact(beginDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
-
-                    }
-
-                    if (endDate.Contains("GMT"))
-                    {
-                        end_date = DateTime.ParseExact(endDate, "ddd MMM dd yyyy HH:mm:ss 'GMT-0500'", CultureInfo.InvariantCulture);
-                    }
-                    else
-                    {
-                        end_date = DateTime.ParseExact(endDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
-                    }
+                    DateTime begin_date = DateTime.ParseExact(beginDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
+                    DateTime end_date = DateTime.ParseExact(endDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
 
                     resultList = await query.Where(s =>
                         s.RecordDate.Value.Date >= begin_date.Date &&

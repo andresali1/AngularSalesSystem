@@ -99,8 +99,8 @@ export class SaleHistoryComponent implements AfterViewInit {
     this._saleService.history(
       this.searchForm.value.searchBy,
       this.searchForm.value.number,
-      this.searchForm.value.beginDate,
-      this.searchForm.value.endDate
+      _beginDate,
+      _endDate
     ).subscribe({
       next: (data) => {
         if (data.status) this.saleListData = data.value;
