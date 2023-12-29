@@ -31,7 +31,7 @@ namespace SalesSystem.BLL.Services
             {
                 var generatedSale = await _saleRepository.Register(_mapper.Map<Sale>(model));
 
-                if(generatedSale.SaleId == 0)
+                if (generatedSale.SaleId == 0)
                     throw new TaskCanceledException("Sale couldn't be created");
 
                 return _mapper.Map<SaleDTO>(generatedSale);
@@ -57,10 +57,30 @@ namespace SalesSystem.BLL.Services
 
             try
             {
-                if(searchBy == "date")
+                if (searchBy == "date")
                 {
-                    DateTime begin_date = DateTime.ParseExact(beginDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
-                    DateTime end_date = DateTime.ParseExact(endDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
+                    DateTime begin_date;
+                    DateTime end_date;
+
+                    if (beginDate.Contains("GMT"))
+                    {
+                        begin_date = DateTime.ParseExact(beginDate, "ddd MMM dd yyyy HH:mm:ss 'GMT-0500'", CultureInfo.InvariantCulture);
+
+                    }
+                    else
+                    {
+                        begin_date = DateTime.ParseExact(beginDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
+
+                    }
+
+                    if (endDate.Contains("GMT"))
+                    {
+                        end_date = DateTime.ParseExact(endDate, "ddd MMM dd yyyy HH:mm:ss 'GMT-0500'", CultureInfo.InvariantCulture);
+                    }
+                    else
+                    {
+                        end_date = DateTime.ParseExact(endDate, "dd/MM/yyyy", new CultureInfo("es-CO"));
+                    }
 
                     resultList = await query.Where(s =>
                         s.RecordDate.Value.Date >= begin_date.Date &&
