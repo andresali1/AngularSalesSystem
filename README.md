@@ -21,7 +21,7 @@ Two projects, the first one is a Back-End project with .Net emulating a sales sy
 ### :open_book: Configuración  
 1. Run ▶️ "git clone https://github.com/andresali1/AngularSalesSystem.git" in a folder
 2. Go inside the folder "SqlScripts" and run both DDL.sql and DML.sql in your SQL server instance
-3. Go inside the folder "SalesSystem" and open the file "SalesSystem.sln" with Visual Studio 2022 and run the backend project
+3. Go inside the folder "SalesSystem" and open the file "SalesSystem.sln" with Visual Studio 2022, then go to the folder "SalesSystem.API", find the appsettings.json and update the connection string. Finally run the backend project
 4. Go inside the folder "SaleSystemApp" and open this folder with a terminal
 5. Run the command ▶️ "npm install" in the terminal
 6. Finally run the command ➡️ "ng serve -open" to access the frontend project
