@@ -5,46 +5,25 @@
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
+
+        <span style="flex: 1 1 auto"></span>
+
+        <label style="font-size: 14px; margin-right: 20px;">
+            {{ userEmail }} | {{ userRole }}
+        </label>
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
         <mat-nav-list>
-            <mat-list-item routerLink="/pages/dashboard">
+            <mat-list-item *ngFor="let menu of menuList" [routerLink]="menu.menuUrl">
                 <div class="nav-item">
-                    <mat-icon mat-list-icon>dashboard</mat-icon>
-                    <div mat-line>DashBoard</div>
-                </div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/usuario">
-                <div class="nav-item">
-                    <mat-icon mat-list-icon>group</mat-icon>
-                    <div mat-line>Usuarios</div>
-                </div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/producto">
-                <div class="nav-item">
-                    <mat-icon mat-list-icon>collections_bookmark</mat-icon>
-                    <div mat-line>Productos</div>
-                </div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/venta">
-                <div class="nav-item">
-                    <mat-icon mat-list-icon>currency_exchange</mat-icon>
-                    <div mat-line>Ventas</div>
-                </div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/historial_venta">
-                <div class="nav-item">
-                    <mat-icon mat-list-icon>edit_note</mat-icon>
-                    <div mat-line>Historial Ventas</div>
-                </div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/reporte">
-                <div class="nav-item">
-                    <mat-icon mat-list-icon>receipt</mat-icon>
-                    <div mat-line>Reports</div>
+                    <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon>
+                    <div mat-line>{{ menu.menuName }}</div>
                 </div>
             </mat-list-item>
         </mat-nav-list>
